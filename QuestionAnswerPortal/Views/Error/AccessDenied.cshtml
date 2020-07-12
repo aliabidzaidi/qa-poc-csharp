@@ -1,0 +1,17 @@
+﻿
+@{
+    ViewBag.Title = "AccessDenied";
+}
+<div class="mb-4"></div>
+<div class="card text-center">
+    <div class="card-header bg-dark font-weight-bolder text-light">
+        Page Not Found
+    </div>
+    <div class="card-body">
+        <h5 class="card-title"></h5>
+        <p class="card-text">Either the page is inaccessible or was not found</p>
+        @Html.ActionLink("Goto HomePage", "Index", "Home",new { }, new { @class = "btn btn-outline-dark" })
+
+    </div>
+</div>
+

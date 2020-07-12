@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="f3753bab176f4b0ea52b1e08b44e65e2" Name="Diagram1">
+        <EntityTypeShape EntityType="QA_POCModel.Answer" Width="1.5" PointX="0.75" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="QA_POCModel.Question" Width="1.5" PointX="3.25" PointY="1" IsExpanded="true" />
+        <EntityTypeShape EntityType="QA_POCModel.AspNetUsers" Width="1.5" PointX="6.25" PointY="1.5" />
+        <AssociationConnector Association="QA_POCModel.FK__Question__Answer__49C3F6B7" />
+        <AssociationConnector Association="QA_POCModel.FK__Question__UserId__48CFD27E" />
+      </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

@@ -1,0 +1,42 @@
+﻿@model IEnumerable<QuestionAnswerPortal.Models.QuestionViewModel>
+@{
+    ViewBag.Title = "Index";
+}
+<div class="container">
+
+    <h2>Questions</h2>
+
+    @if (Model != null && Model.Count() > 0)
+    {
+        <pre>load questions from database</pre>
+        foreach (var item in Model)
+        {
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        User: @item.UserName
+                        <span class="float-right">Asked On: @item.DatePublished.ToString("dd/MM/yyyy")</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">@item.QuestionText</p>
+                        @if (item.AnswerId != 0)
+                        {
+                            @Html.ActionLink("View Answer", "ViewAnswer", "Question", new { id = item.Id }, new { @class = "btn btn-outline-success" })
+                        }
+                        else
+                        {
+                            <a href="#" class="btn btn-outline-danger disabled">Not yet answered</a>
+                            /**/
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="alert alert-danger" role="alert">
+            There are no Questions public...
+        </div>
+    }
+</div>

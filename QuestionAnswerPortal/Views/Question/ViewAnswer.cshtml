@@ -1,0 +1,40 @@
+﻿@model QuestionAnswerPortal.Models.QuestionViewModel
+@{
+    ViewBag.Title = "View Answer";
+}
+
+
+
+<div class="container">
+
+    <div class="col-md-12">
+        <h3 class="font-weight-bold my-4">Question</h3>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                @Model.UserName
+                <span class="float-right">@Model.DatePublished.ToString("dd/MM/yyyy")</span>
+            </div>
+            <div class="card-body">
+                <p class="card-text">@Model.QuestionText</p>
+            </div>
+        </div>
+    </div>
+
+    <hr />
+    @* Add All Form Items for Answer*@
+    <div class="col-md-12">
+        <h3 class="font-weight-bold my-4">Answer</h3>
+
+        <div class="card mb-4">
+            <div class="card-header">
+                <a href="@Model.Answer.Link">@Model.Answer.Link</a>
+                <span class="float-right">@Model.Answer.AnsweredDate.ToString("dd/MM/yyyy")</span>
+            </div>
+            <div class="card-body">
+                <p class="card-text">@Model.Answer.AnswerText</p>
+            </div>
+        </div>
+    </div>
+
+</div>

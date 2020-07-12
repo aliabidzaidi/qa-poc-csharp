@@ -1,0 +1,54 @@
+﻿@model IEnumerable<QuestionAnswerPortal.Models.QuestionViewModel>
+@{
+    ViewBag.Title = "ViewMyQuestions";
+}
+
+
+
+<div class="container">
+    <h2>My Asked Questions</h2>
+
+    <div class="col-md-12">
+        <div class="row">
+            <div id="messageDiv" class="alert alert-secondary" style="display:none;"></div>
+        </div>
+    </div>
+    @foreach (var item in Model)
+    {
+        <div class="col-md-12">
+            <div class="card mb-4">
+                <div class="card-header">
+                    User: @item.UserName
+                    <span class="float-right">@item.DatePublished.ToString("dd/MM/yyyy")</span>
+
+                </div>
+                <div class="card-body">
+                    <p class="card-text">@item.QuestionText</p>
+                    @if (item.AnswerId == null || item.AnswerId == 0)
+                    {
+                        <a href="#" class="btn btn-outline-danger disabled">Not yet answered</a>
+                    }
+                    else
+                    {
+                        @Html.ActionLink("View Answer", "ViewAnswer", "Question", new { questionId = item.Id }, htmlAttributes: new { @class = "btn btn-outline-success" })
+                    }
+
+                </div>
+            </div>
+        </div>
+    }
+</div>
+
+
+
+@section scripts{
+    @if(ViewBag.Message != null)
+    {
+        <script type="text/javascript">
+            $(function () {
+                var message = 'Hello , @Ajax.JavaScriptStringEncode(ViewBag.Message)';
+                $('#messageDiv').html(message).show();
+            });
+        </script>
+    }
+}

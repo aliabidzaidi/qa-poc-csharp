@@ -1,0 +1,35 @@
+﻿@model QuestionAnswerPortal.Models.QuestionViewModel
+
+@{
+    ViewBag.Title = "AskQuestion";
+}
+<div class="container body-content">
+
+    <h2>Ask A Question</h2>
+    <hr />
+
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+
+        <div class="form-horizontal">
+            <h4>Fill out the details for the question</h4>
+            <hr />
+            @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+            <div class="form-group">
+                @Html.LabelFor(model => model.QuestionText, htmlAttributes: new { @class = "control-label col-md-2" })
+                <div class="col-md-10">
+                    @Html.TextAreaFor(model => model.QuestionText, 10, 100, new { htmlAttributes = new { @class = "form-control" } })
+                    @Html.ValidationMessageFor(model => model.QuestionText, "", new { @class = "text-danger" })
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-md-offset-2 col-md-10">
+                    <input type="submit" value="Submit" class="btn btn-outline-danger" />
+                </div>
+            </div>
+        </div>
+    }
+
+</div>

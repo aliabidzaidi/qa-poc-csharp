@@ -1,0 +1,51 @@
+﻿@model List<QuestionAnswerPortal.Models.QuestionViewModel>
+@{
+    ViewBag.Title = "Queue";
+}
+<div class="mb-4"></div>
+
+<div class="container">
+    <div class="row">
+        <div class="col">
+
+            <h2 style="display:inline-block">Queue</h2>
+            <span class="badge badge-dark float-right mt-3">Queue Count: @ViewBag.QueueCount</span>
+        </div>
+
+    </div>
+    @if (Model != null && Model.Count() > 0)
+    {
+        <p></p>
+        foreach (var item in Model)
+        {
+            <div class="col-md-12">
+                <div class="card mb-4">
+                    <div class="card-header">
+                        @item.UserName
+                        <span class="float-right">@item.DatePublished.ToString("dd/MM/yyyy HH:mm")</span>
+                    </div>
+                    <div class="card-body">
+                        <p class="card-text">@item.QuestionText</p>
+                        @if (item.AnswerId == null || item.AnswerId == 0)
+                        {
+                            @Html.ActionLink("Answer Question", "AddAnswer", "Question", new { id = item.Id }, new { @class = "btn btn-outline-warning" })
+                        }
+                        else
+                        {
+                            @Html.ActionLink("View Answer", "ViewAnswer", "Question", new { id = item.Id }, new { @class = "btn btn-outline-success" })
+                        }
+                    </div>
+                </div>
+            </div>
+        }
+    }
+    else
+    {
+        <div class="alert alert-danger" role="alert">
+            There are no Questions currently in the Queue...
+        </div>
+    }
+</div>
+
+
+

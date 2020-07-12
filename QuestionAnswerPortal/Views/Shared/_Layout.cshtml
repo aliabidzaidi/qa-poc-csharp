@@ -1,0 +1,73 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+
+</head>
+<body>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-danger">
+        <div class="container">
+            @Html.ActionLink("Q & A", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                <span class="navbar-toggler-icon"></span>
+            </button>
+
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+                <ul class="navbar-nav mr-auto">
+                    <li>@Html.ActionLink("Home", "Index", "Home", new { area = "" }, new { @class = "nav-link" })</li>
+
+                    <li>@Html.ActionLink("View Questions", "Index", "Question", new { area = "" }, new { @class = "nav-link" })</li>
+
+                    @if (System.Web.HttpContext.Current.User.Identity.IsAuthenticated)
+                    {
+                        <li>@Html.ActionLink("Ask Question", "AskQuestion", "Question", new { area = "" }, new { @class = "nav-link" })</li>
+                        <li>@Html.ActionLink("My Questions", "ViewMyQuestions", "Question", new { area = "" }, new { @class = "nav-link" })</li>
+                    }
+
+                    @if (System.Web.HttpContext.Current.User.IsInRole("AdminUser"))
+                    {
+                        <li>@Html.ActionLink("Question Queue", "Queue", "Question", new { area = "" }, new { @class = "nav-link" })</li>
+                    }
+
+                    @*<li class="nav-item dropdown">
+            <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">Questions</a>
+
+            <div class="dropdown-menu" aria-labelledby="navbarDropDown">
+                @Html.ActionLink("View Questions", "Index", "Question", new { area = "" }, new { @class = "dropdown-item" })
+                @Html.ActionLink("Ask Question", "AskQuestion", "Question", new { area = "" }, new { @class = "dropdown-item" })
+                @Html.ActionLink("My Questions", "ViewMyQuestions", "Question", new { area = "" }, new { @class = "dropdown-item" })
+            </div>
+        </li>*@
+
+                </ul>
+
+                @Html.Partial("_LoginPartial")
+
+                @*<form class="form-inline my-2 my-lg-0">
+                        <input class="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search">
+                        <button class="btn btn-outline-light my-2 my-sm-0" type="submit">Search</button>
+                    </form>*@
+            </div>
+        </div>
+    </nav>
+
+    <div class="container body-content">
+        @RenderBody()
+
+        <footer class="text-center">
+            <hr />
+            <p>&copy; @DateTime.Now.Year - Q & A <span class="badge badge-pill badge-danger ml-5">Proof Of Concept</span></p>
+            
+        </footer>
+    </div>
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+</body>
+</html>
