@@ -361,7 +361,6 @@ MigrationBackup/
 # Fody - auto-generated XML schema
 FodyWeavers.xsd
 .rar
-
 /QuestionAnswerPortal/Scripts/*
 /QuestionAnswerPortal/Content/bootstrap.min.css.map
 /QuestionAnswerPortal/Content/bootstrap.min.css
