@@ -362,5 +362,16 @@ MigrationBackup/
 FodyWeavers.xsd
 .rar
 
-Content/bootstrap*
-Scripts
+/QuestionAnswerPortal/Scripts/*
+/QuestionAnswerPortal/Content/bootstrap.min.css.map
+/QuestionAnswerPortal/Content/bootstrap.min.css
+/QuestionAnswerPortal/Content/bootstrap.css.map
+/QuestionAnswerPortal/Content/bootstrap.css
+/QuestionAnswerPortal/Content/bootstrap-reboot.min.css.map
+/QuestionAnswerPortal/Content/bootstrap-reboot.min.css
+/QuestionAnswerPortal/Content/bootstrap-reboot.css.map
+/QuestionAnswerPortal/Content/bootstrap-reboot.css
+/QuestionAnswerPortal/Content/bootstrap-grid.min.css.map
+/QuestionAnswerPortal/Content/bootstrap-grid.min.css
+/QuestionAnswerPortal/Content/bootstrap-grid.css.map
+/QuestionAnswerPortal/Content/bootstrap-grid.css
